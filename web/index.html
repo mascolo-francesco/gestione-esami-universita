@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro Esami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="masthead">
+            <span class="label">Sistema Accademico</span>
+            <h1 class="title">Registro Esami</h1>
+          </div>
+          <div class="header-meta">
+            <div class="meta-item">
+              <span class="meta-key">DB</span>
+              <span class="meta-val">MySQL</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-key">API</span>
+              <span class="meta-val">Flask</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="layout">
+          <!-- Inserimento -->
+          <section class="panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Nuovo Esame</h2>
+            </div>
+            <form id="exam-form" class="form">
+              <div class="field">
+                <label for="student-select" class="field-label">Studente</label>
+                <select id="student-select" class="field-input" required>
+                  <option value="">Seleziona</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="subject-select" class="field-label">Materia</label>
+                <select id="subject-select" class="field-input" required>
+                  <option value="">Seleziona</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="teacher-select" class="field-label">Docente</label>
+                <select id="teacher-select" class="field-input" required>
+                  <option value="">Seleziona</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <div class="field">
+                  <label for="exam-date" class="field-label">Data</label>
+                  <input type="date" id="exam-date" class="field-input" required />
+                </div>
+                <div class="field">
+                  <label for="exam-grade" class="field-label">Voto</label>
+                  <input type="number" id="exam-grade" class="field-input" min="18" max="30" required />
+                </div>
+              </div>
+              <div class="field-check">
+                <input type="checkbox" id="exam-lode" class="checkbox" />
+                <label for="exam-lode" class="field-label">Con lode</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Registra Esame</button>
+              <p class="feedback" id="form-feedback"></p>
+            </form>
+          </section>
+
+          <!-- Elenco Esami -->
+          <section class="panel panel-wide">
+            <div class="panel-header">
+              <h2 class="panel-title">Esami Registrati</h2>
+            </div>
+            <div class="filters">
+              <div class="field">
+                <label for="filter-student" class="field-label">Studente</label>
+                <select id="filter-student" class="field-input">
+                  <option value="">Tutti</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="filter-subject" class="field-label">Materia</label>
+                <select id="filter-subject" class="field-input">
+                  <option value="">Tutte</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="filter-teacher" class="field-label">Docente</label>
+                <select id="filter-teacher" class="field-input">
+                  <option value="">Tutti</option>
+                </select>
+              </div>
+              <button id="filter-btn" type="button" class="btn btn-secondary">Filtra</button>
+            </div>
+            <div class="data-table" id="exams-table"></div>
+          </section>
+
+          <!-- Media Pesata -->
+          <section class="panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Media Pesata</h2>
+              <p class="panel-desc">Calcolo per CFU</p>
+            </div>
+            <button id="avg-btn" type="button" class="btn btn-secondary">Calcola</button>
+            <div class="data-table" id="avg-table"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
